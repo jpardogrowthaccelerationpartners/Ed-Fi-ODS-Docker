@@ -17,6 +17,7 @@ ENV ADMINAPP_DATABASE_VERSION="3.1.2-alpha.0.10"
 
 COPY init-database.sh /docker-entrypoint-initdb.d/1-init-database.sh
 COPY run-adminapp-migrations.sh /docker-entrypoint-initdb.d/2-run-adminapp-migrations.sh
+COPY run_set_ods_instances.sql /tmp
 
 RUN apk --no-cache add dos2unix=~7 unzip=~6 && \
     wget -O /tmp/EdFi_Admin.zip https://pkgs.dev.azure.com/ed-fi-alliance/Ed-Fi-Alliance-OSS/_apis/packaging/feeds/EdFi/nuget/packages/EdFi.Database.Admin.PostgreSQL/versions/${ADMIN_VERSION}/content && \
@@ -29,6 +30,7 @@ RUN apk --no-cache add dos2unix=~7 unzip=~6 && \
     dos2unix /docker-entrypoint-initdb.d/2-run-adminapp-migrations.sh && \
     dos2unix /tmp/EdFi_Admin.sql && \
     dos2unix /tmp/EdFi_Security.sql && \
+    dos2unix /tmp/run_set_ods_instances.sql && \
     dos2unix /tmp/AdminAppScripts/PgSql/* && \
     chmod -R 777 /tmp/AdminAppScripts/PgSql
 
