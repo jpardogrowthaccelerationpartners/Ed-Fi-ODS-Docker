@@ -24,3 +24,6 @@ psql --no-password --username "$POSTGRES_USER" --port $POSTGRES_PORT --dbname "E
 
 echo "Loading Admin database from backup..."
 psql --no-password --username "$POSTGRES_USER" --port $POSTGRES_PORT --dbname "EdFi_Admin" --file /tmp/EdFi_Admin.sql 1> /dev/null
+
+echo "Insert Ods Instances for Automation"
+psql --no-password --username "$POSTGRES_USER" --port $POSTGRES_PORT --dbname "EdFi_Admin" --file /tmp/run_set_ods_instances.sql 1> /dev/null
