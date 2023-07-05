@@ -1,3 +1,3 @@
 -- LOAD DATA
 INSERT INTO dbo.odsinstances(name, instancetype, status, isextended, version, connectionstring)
-VALUES ('EdFi_Ods', 'OdsInstance', 'Active', '0', '1.0', 'server=pb-ods;database=EdFi_Ods;application name=EdFi.Ods.AdminApp');
+VALUES ('EdFi ODS', 'OdsInstance', 'Active', '0', '1.0', 'server=pb-ods;database=EdFi_Ods;application name=EdFi.Ods.AdminApp');
